@@ -14,7 +14,7 @@ ENDIF:
 	li	$a3 10
 WHILE:
 	blt $a1 $a3 END
-	addi $a1,$a1 1
+	addi $a1 $a1 1
 	j WHILE
 END:
 	lw $t0 0($t3)

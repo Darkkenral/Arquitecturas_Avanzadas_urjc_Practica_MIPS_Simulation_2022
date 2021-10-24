@@ -92,6 +92,6 @@ class Etiqueta(Instruccion):
     
     def __init__(self, nombre_etiqueta):
         super().__init__("Etiqueta", {})
-        self.nombre_etiqueta=nombre_etiqueta
+        self.nombre_etiqueta=nombre_etiqueta[:-1]
 class Instruccion_vacia(Instruccion):
     pass
