@@ -1,94 +1,28 @@
-from _typeshed import Self
-from typing import Dict
+
+
 
 
 class Instruccion():
+  
+
     def __init__(self, op, signals):
         self.op = op
-        self.signal_controls = {'aluop': None,
-                                'regRead': None,
-                                'regWrite': None,
-                                'readMem': None,
-                                'writeMem': None}
+        self.signal_contr = {'aluop': None,
+                    'regRead': None,
+                    'regWrite': None,
+                    'readMem': None,
+                    'writeMem': None}
         if not signals=={}:
             for signal in signals.keys():
-                signal_controls[signal] = signals[signal]
+               self.signal_contr[signal] = signals[signal]
 
-    @property
-    def op(self):
-        """ Devuelve el codigo de operacion"""
-        return self.op
-
-    @property
-    def aluop(self):
-        '''
-            Obtiene la sennal de control que decide una operacion de la alu
-
-            Devuelve
-            -------
-            Int
-                Bit de la señal
-        '''
-        return self.signal_controls['aluop']
-
-    @property
-    def regRead(self):
-        '''
-            Obtiene la sennal de control que decide si leer o no en un registro
-
-            Devuelve
-            -------
-            Int
-                Bit de la señal
-        '''
-        return self.signal_controls['regRead']
-
-    @property
-    def regWrite(self):
-        '''
-            Obtiene la sennal de control que decide si escribir o no en un registro
-
-            Devuelve
-            -------
-            Int
-                Bit de la señal
-        '''
-        return self.signal_controls['regWrite']
-
-    @property
-    def readMem(self):
-        '''
-             Obtiene la sennal de control que decide si leer o no de la memoria principal
-
-             Devuelve
-             -------
-             Int
-                 Bit de la señal
-         '''
-        return self.signal_controls['readMem']
-
-    @property
-    def writeMem(self):
-        '''
-            Obtiene la sennal de control que decide si escribir o no de la memoria principal
-
-            Devuelve
-            -------
-            Int
-                Bit de la señal
-        '''
-        return self.signal_controls['writeMem']
-
-    @property
-    def __str__(self):
-        s = str(self.op)+"\t"
-        return s
+ 
 
 
 class TipoR(Instruccion):
     
 
-    def __init__(self, op, signals: Dict, reg_nombre_s, reg_nombre_t, reg_nombre_dest):
+    def __init__(self, op, signals, reg_nombre_s, reg_nombre_t, reg_nombre_dest):
         super().__init__(op, signals)
         self.reg_value_s = None
         self.reg_value_t = None
@@ -96,18 +30,6 @@ class TipoR(Instruccion):
         self.reg_nombre_s = reg_nombre_s
         self.reg_nombre_t = reg_nombre_t
         self.reg_nombre_dest = reg_nombre_dest
-
-    @property
-    def reg_nombre_s(self):
-        return self.reg_nombre_s
-
-    @property
-    def reg_nombre_t(self):
-        return self.reg_nombre_t
-
-    @property
-    def reg_nombre_dest(self):
-        return self.reg_nombre_dest
 
     @property
     def __str__(self):
@@ -125,7 +47,7 @@ class TipoR(Instruccion):
 
 class TipoI(Instruccion):
 
-    def __init__(self, op, signals: Dict, reg_nombre_s, reg_nombre_t, inmediato):
+    def __init__(self, op, signals, reg_nombre_s, reg_nombre_t, inmediato):
         super().__init__(op, signals)
         self.reg_value_s = None
         self.reg_value_t = None
@@ -133,17 +55,6 @@ class TipoI(Instruccion):
         self.reg_nombre_t = reg_nombre_t
         self.inmediato = inmediato
 
-    @property
-    def reg_nombre_s(self):
-        return self.reg_nombre_s
-
-    @property
-    def reg_nombre_t(self):
-        return self.reg_nombre_t
-
-    @property
-    def inmediato(self):
-        return self.inmediato
 
     @property
     def __str__(self):
@@ -161,13 +72,9 @@ class TipoI(Instruccion):
 
 class TipoJ(Instruccion):
 
-    def __init__(self, op, signals: Dict, desplazamiento):
-        super().__init__(op, signals)
-        self.desplazamiento = desplazamiento
-
-    @property
-    def desplazamiento(self):
-        return self.desplazamiento
+    def __init__(self, op ,target):
+        super().__init__(op, {})
+        self.target = target
 
     @property
     def __str__(self):
@@ -181,3 +88,10 @@ class TipoJ(Instruccion):
         s = str(self.op) + " " + str(self.desplazamiento) + "\n "
 
         return s
+class Etiqueta(Instruccion):
+    
+    def __init__(self, nombre_etiqueta):
+        super().__init__("Etiqueta", {})
+        self.nombre_etiqueta=nombre_etiqueta
+class Instruccion_vacia(Instruccion):
+    pass
