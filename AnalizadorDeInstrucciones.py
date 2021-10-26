@@ -6,7 +6,7 @@ class AnalizadorDeInstrucciones():
     def __init__(self):
         self.setTipoInstruccion = {
             'r': ['add', 'sub', 'and', 'or', 'nor', 'slt','mul'],
-            'i': ['addi', 'subi', 'ori',  'beq', 'bne', 'lw', 'sw', 'li'],
+            'i': ['addi', 'subi', 'ori',  'beq', 'bne', 'lw', 'sw', 'li','blt','bgt'],
             'j': ['j']
         }
 
@@ -90,7 +90,7 @@ class AnalizadorDeInstrucciones():
             Objeto que encapsula una instruccion de tipo i
         '''
 
-        if (linea[0] == 'bne' or linea[0] == 'beq'):
+        if (linea[0] == 'bne' or linea[0] == 'beq'or linea[0] == 'blt'or linea[0] == 'bgt'):
             return Instruccion.TipoI(op=linea[0], signals={"regRead": 1, "aluop": 1}, reg_nombre_s=linea[1], reg_nombre_t=linea[2], inmediato=linea[3])
 
         if (linea[0] == "lw" or linea[0] == "sw"):
@@ -116,7 +116,6 @@ class AnalizadorDeInstrucciones():
             else:
                 return Instruccion.TipoI(op=linea[0], signals={"regRead": 1, "aluop": 1, "writeMem": 1}, reg_nombre_s=linea[1], reg_nombre_t=valorRegistro, inmediato=valorInmediato)
         if (linea[0] == "li"):
-
             return Instruccion.TipoI(op=linea[0], signals={"regWrite": 1, "aluop": 1}, reg_nombre_s=linea[1], reg_nombre_t=None, inmediato=linea[2])
         return Instruccion.TipoI(op=linea[0], signals={"regRead": 1, "regWrite": 1, "aluop": 1}, reg_nombre_s=linea[1], reg_nombre_t=linea[2], inmediato=linea[3])
 

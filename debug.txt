@@ -1,3 +1,472 @@
-{'$zero': 0, '$at': 0, '$gp': 0, '$sp': 0, '$fp': 0, '$ra': 0, '$v0': 0, '$v1': 0, '$a0': 0, '$a1': 0, '$a2': 0, '$a3': 0, '$t0': 0, '$t1': 0, '$t2': 0, '$t3': 0, '$t4': 0, '$t5': 0, '$t6': 0, '$t7': 0, '$t8': 0, '$t9': 0, '$k0': 0, '$k1': 0}
-{'$zero': 0, '$at': 0, '$gp': 0, '$sp': 0, '$fp': 0, '$ra': 0, '$v0': 0, '$v1': 0, '$a0': 0, '$a1': 0, '$a2': 0, '$a3': 0, '$t0': 0, '$t1': 0, '$t2': 0, '$t3': 0, '$t4': 0, '$t5': 0, '$t6': 0, '$t7': 0, '$t8': 0, '$t9': 0, '$k0': 0, '$k1': 0}
-{'$zero': 0, '$at': 0, '$gp': 0, '$sp': 0, '$fp': 0, '$ra': 0, '$v0': 0, '$v1': 0, '$a0': 0, '$a1': 0, '$a2': 0, '$a3': 0, '$t0': 0, '$t1': 0, '$t2': 0, '$t3': 0, '$t4': 0, '$t5': 0, '$t6': 0, '$t7': 0, '$t8': 0, '$t9': 0, '$k0': 0, '$k1': 0}
+<Coleccion de instrucciones>
+4096 :  li $a0 None 2
+4100 :  li $a1 None 5
+4104 :  Etiqueta IF
+4108 :  blt $a1 $a0 4120
+4112 :  Etiqueta BODYIF
+4116 :  add $a0 $a0 $a1
+4120 :  Etiqueta ENDIF
+4124 :  add $t0 $a0 $zero
+4128 :  add $t1 $a1 $zero
+4132 :  sw $t0 $t3 0
+4136 :  sw $t1 $t3 4
+4140 :  li $a3 None 10
+4144 :  Etiqueta WHILE
+4148 :  blt $a1 $a3 4160
+4152 :  addi $a1 $a1 1
+4156 :  j 4144
+4160 :  Etiqueta END
+4164 :  lw $t0 $t3 0
+4168 :  lw $t1 $t3 4
+4172 :  sub $t5 $a1 $t0
+4176 :  add $t6 $a1 $t1
+4180 :  add $t6 $a1 $t0
+4184 :  mul $v0 $t5 $t6
+Instruccion_vacia
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 0	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4100
+
+<segmentacion>
+FetchStage 	:	li $a0 None 2
+ReadStage :	Vacia
+ExecStage :	Vacia
+DataStage  :	Vacia
+WriteStage :	Vacia
+<Hazard List> :  []
+TipoI
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 0	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4104
+
+<segmentacion>
+FetchStage 	:	li $a1 None 5
+ReadStage :	li $a0 None 2
+ExecStage :	Vacia
+DataStage  :	Vacia
+WriteStage :	Vacia
+<Hazard List> :  []
+TipoI
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 2	$a1 : 0	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4108
+
+<segmentacion>
+FetchStage 	:	Etiqueta IF
+ReadStage :	li $a1 None 5
+ExecStage :	li $a0 None 2
+DataStage  :	Vacia
+WriteStage :	Vacia
+<Hazard List> :  []
+Etiqueta
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 2	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4112
+
+<segmentacion>
+FetchStage 	:	blt $a1 $a0 4120
+ReadStage :	Etiqueta IF
+ExecStage :	li $a1 None 5
+DataStage  :	li $a0 None 2
+WriteStage :	Vacia
+<Hazard List> :  []
+TipoI
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4116
+
+<segmentacion>
+FetchStage 	:	Etiqueta BODYIF
+ReadStage :	blt $a1 $a0 4120
+ExecStage :	Etiqueta IF
+DataStage  :	li $a1 None 5
+WriteStage :	li $a0 None 2
+<Hazard List> :  []
+Etiqueta
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 0	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4120
+
+<segmentacion>
+FetchStage 	:	add $a0 $a0 $a1
+ReadStage :	Etiqueta BODYIF
+ExecStage :	blt $a1 $a0 4120
+DataStage  :	Etiqueta IF
+WriteStage :	li $a1 None 5
+<Hazard List> :  []
+TipoR
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 0	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4124
+
+<segmentacion>
+FetchStage 	:	Etiqueta ENDIF
+ReadStage :	add $a0 $a0 $a1
+ExecStage :	Etiqueta BODYIF
+DataStage  :	blt $a1 $a0 4120
+WriteStage :	Etiqueta IF
+<Hazard List> :  []
+Etiqueta
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4128
+
+<segmentacion>
+FetchStage 	:	add $t0 $a0 $zero
+ReadStage :	Etiqueta ENDIF
+ExecStage :	add $a0 $a0 $a1
+DataStage  :	Etiqueta BODYIF
+WriteStage :	blt $a1 $a0 4120
+<Hazard List> :  []
+TipoR
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4132
+
+<segmentacion>
+FetchStage 	:	add $t1 $a1 $zero
+ReadStage :	add $t0 $a0 $zero
+ExecStage :	Etiqueta ENDIF
+DataStage  :	add $a0 $a0 $a1
+WriteStage :	Etiqueta BODYIF
+<Hazard List> :  []
+TipoR
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4136
+
+<segmentacion>
+FetchStage 	:	sw $t0 $t3 0
+ReadStage :	add $t1 $a1 $zero
+ExecStage :	add $t0 $a0 $zero
+DataStage  :	Etiqueta ENDIF
+WriteStage :	add $a0 $a0 $a1
+<Hazard List> :  []
+TipoI
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4140
+
+<segmentacion>
+FetchStage 	:	sw $t1 $t3 4
+ReadStage :	sw $t0 $t3 0
+ExecStage :	add $t1 $a1 $zero
+DataStage  :	add $t0 $a0 $zero
+WriteStage :	Etiqueta ENDIF
+<Hazard List> :  []
+TipoI
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : None	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4144
+
+<segmentacion>
+FetchStage 	:	li $a3 None 10
+ReadStage :	sw $t1 $t3 4
+ExecStage :	sw $t0 $t3 0
+DataStage  :	add $t1 $a1 $zero
+WriteStage :	add $t0 $a0 $zero
+<Hazard List> :  []
+TipoI
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : None	$t1 : None	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4148
+
+<segmentacion>
+FetchStage 	:	Etiqueta WHILE
+ReadStage :	li $a3 None 10
+ExecStage :	sw $t1 $t3 4
+DataStage  :	sw $t0 $t3 0
+WriteStage :	add $t1 $a1 $zero
+<Hazard List> :  []
+Etiqueta
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 10	$t0 : 0	$t1 : None	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4152
+
+<segmentacion>
+FetchStage 	:	blt $a1 $a3 4160
+ReadStage :	Etiqueta WHILE
+ExecStage :	li $a3 None 10
+DataStage  :	sw $t1 $t3 4
+WriteStage :	sw $t0 $t3 0
+<Hazard List> :  []
+TipoI
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 10	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4156
+
+<segmentacion>
+FetchStage 	:	addi $a1 $a1 1
+ReadStage :	blt $a1 $a3 4160
+ExecStage :	Etiqueta WHILE
+DataStage  :	li $a3 None 10
+WriteStage :	sw $t1 $t3 4
+<Hazard List> :  []
+TipoI
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4160
+
+<segmentacion>
+FetchStage 	:	Vacia
+ReadStage :	Vacia
+ExecStage :	blt $a1 $a3 4160
+DataStage  :	Etiqueta WHILE
+WriteStage :	li $a3 None 10
+<Hazard List> :  []
+Instruccion_vacia
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4164
+
+<segmentacion>
+FetchStage 	:	Etiqueta END
+ReadStage :	Vacia
+ExecStage :	Vacia
+DataStage  :	blt $a1 $a3 4160
+WriteStage :	Etiqueta WHILE
+<Hazard List> :  []
+Etiqueta
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4168
+
+<segmentacion>
+FetchStage 	:	lw $t0 $t3 0
+ReadStage :	Etiqueta END
+ExecStage :	Vacia
+DataStage  :	Vacia
+WriteStage :	blt $a1 $a3 4160
+<Hazard List> :  []
+TipoI
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4172
+
+<segmentacion>
+FetchStage 	:	lw $t1 $t3 4
+ReadStage :	lw $t0 $t3 0
+ExecStage :	Etiqueta END
+DataStage  :	Vacia
+WriteStage :	Vacia
+<Hazard List> :  []
+TipoI
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4176
+
+<segmentacion>
+FetchStage 	:	sub $t5 $a1 $t0
+ReadStage :	lw $t1 $t3 4
+ExecStage :	lw $t0 $t3 0
+DataStage  :	Etiqueta END
+WriteStage :	Vacia
+<Hazard List> :  []
+TipoR
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : 0	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4180
+
+<segmentacion>
+FetchStage 	:	add $t6 $a1 $t1
+ReadStage :	sub $t5 $a1 $t0
+ExecStage :	lw $t1 $t3 4
+DataStage  :	lw $t0 $t3 0
+WriteStage :	Etiqueta END
+<Hazard List> :  []
+TipoR
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : li $a0 None 2	$t1 : 0	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4184
+
+<segmentacion>
+FetchStage 	:	add $t6 $a1 $t0
+ReadStage :	add $t6 $a1 $t1
+ExecStage :	sub $t5 $a1 $t0
+DataStage  :	lw $t1 $t3 4
+WriteStage :	lw $t0 $t3 0
+<Hazard List> :  []
+TipoR
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : li $a0 None 2	$t1 : li $a1 None 5	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : 0	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4188
+
+<segmentacion>
+FetchStage 	:	mul $v0 $t5 $t6
+ReadStage :	add $t6 $a1 $t0
+ExecStage :	add $t6 $a1 $t1
+DataStage  :	sub $t5 $a1 $t0
+WriteStage :	lw $t1 $t3 4
+<Hazard List> :  []
+TipoR
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : li $a0 None 2	$t1 : li $a1 None 5	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : None	$t6 : 0	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4192
+
+<segmentacion>
+FetchStage 	:	Vacia
+ReadStage :	mul $v0 $t5 $t6
+ExecStage :	add $t6 $a1 $t0
+DataStage  :	add $t6 $a1 $t1
+WriteStage :	sub $t5 $a1 $t0
+<Hazard List> :  []
+Instruccion_vacia
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : li $a0 None 2	$t1 : li $a1 None 5	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : None	$t6 : None	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4196
+
+<segmentacion>
+FetchStage 	:	Vacia
+ReadStage :	Vacia
+ExecStage :	mul $v0 $t5 $t6
+DataStage  :	add $t6 $a1 $t0
+WriteStage :	add $t6 $a1 $t1
+<Hazard List> :  []
+Instruccion_vacia
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : 0	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : li $a0 None 2	$t1 : li $a1 None 5	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : None	$t6 : None	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4200
+
+<segmentacion>
+FetchStage 	:	Vacia
+ReadStage :	Vacia
+ExecStage :	Vacia
+DataStage  :	mul $v0 $t5 $t6
+WriteStage :	add $t6 $a1 $t0
+<Hazard List> :  []
+Instruccion_vacia
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : None	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : li $a0 None 2	$t1 : li $a1 None 5	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : None	$t6 : None	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4204
+
+<segmentacion>
+FetchStage 	:	Vacia
+ReadStage :	Vacia
+ExecStage :	Vacia
+DataStage  :	Vacia
+WriteStage :	mul $v0 $t5 $t6
+<Hazard List> :  []
+Instruccion_vacia
+Instruccion_vacia
+######################## debug ###########################
+
+<Register File>
+	$zero : 0	$at : 0	$gp : 0	$sp : 0	$fp : 0	$ra : 0	$v0 : None	$v1 : 0	$a0 : 0	$a1 : 5	$a2 : 0	$a3 : 0	$t0 : li $a0 None 2	$t1 : li $a1 None 5	$t2 : 0	$t3 : 0	$t4 : 0	$t5 : None	$t6 : None	$t7 : 0	$t8 : 0	$t9 : 0	$k0 : 0	$k1 : 0
+
+<contador_de_programa> 4208
+
+<segmentacion>
+FetchStage 	:	Vacia
+ReadStage :	Vacia
+ExecStage :	Vacia
+DataStage  :	Vacia
+WriteStage :	Vacia
+<Hazard List> :  []
