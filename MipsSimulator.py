@@ -92,19 +92,21 @@ class Segmentacionsimulacion(object):
             if not(self.listaPeligros == []):
                 self.listaPeligros.pop(0)
 
-        self.checkDone()
+        self.checkTerminado()
 
         # si hemos aparcado la instruccion o es un salto no queremos cargar una nueva instruccion al ciclo
         if self.aparcado or self.ramificado:
             self.contador_de_programa -= 4
             self.ramificado = False
 
-    def checkDone(self):
+    def checkTerminado(self):
         """ Comprueba si queda alguna instruccion por ejecutarse """
         self.__terminado = True
         for pi in self.segmentacion:
             if pi.instr.__class__.__name__ != Instruccion_vacia.__name__:
                 self.__terminado = False
+        if   self.__terminado:
+            print("######################## Terminado ###########################")
 
     def run(self):
         """Ejecuta la simulacion, hasta que la señal done se activa"""
@@ -117,6 +119,7 @@ class Segmentacionsimulacion(object):
         """ Realiza el forwarding basandose en el nombre del registro
             Si el valor no esta listo, devuelve el token "NULL"
         """
+        print("<Realizando Forwarding> : ",regnombre)
         if (self.segmentacion[4].instr is not Instruccion_vacia
                 and self.segmentacion[4].instr.value is not None
                 and self.segmentacion[4].instr.reg_nombre_dest == regnombre):
@@ -131,7 +134,7 @@ class Segmentacionsimulacion(object):
     def debug(self):
         print("######################## debug ###########################")
 
-        self.printRegFile()
+        self.printRegistros()
         print("\n<contador_de_programa>", self.contador_de_programa)
         self.printsegmentacion()
         print("<Hazard List> : ", self.listaPeligros)
@@ -144,7 +147,7 @@ class Segmentacionsimulacion(object):
         print(str(self.segmentacion[4]))
         print(str(self.segmentacion[1]))
 
-    def printRegFile(self):
+    def printRegistros(self):
         # """
         print("\n<Register File>")
         s = []
@@ -206,14 +209,12 @@ class ReadStage(segmentacionStage):
         """
         Lee el dato de los registros utilizados en la instruccion
         """
-        print (self.instr.__class__.__name__ )
-        print (Instruccion_vacia.__name__ )
-
         if self.instr.__class__.__name__ != Instruccion_vacia.__name__:
             if self.instr.__class__.__name__ != Etiqueta.__name__:
                 if self.instr.op == 'j':
                     self.simulacion.contador_de_programa = self.instr.target
                     # Pone el resto de instrucciones del pipeline a instruccion vacia en caso de salto
+                    print("-------BURBUJA DE SALTO INCONDICIONAL-------")
                     self.simulacion.segmentacion[0] = FetchStage(
                         Instruccion_vacia(), self)
 
@@ -252,8 +253,9 @@ class ExecStage(segmentacionStage):
                     if self.instr.aluop:
                         # Si tenemos un posible peligro en el registro s o en el t
                         # cogemos el valor foward
-               
+                       
                         if self.instr.reg_nombre_s in self.simulacion.listaPeligros:
+                            print("<Hay un posible peligro> : ")
                             forwardVal = self.simulacion.getForwardVal(
                                 self.instr.reg_nombre_s)
                             if forwardVal != "NULL":
@@ -294,6 +296,7 @@ class ExecStage(segmentacionStage):
                                 # Colocamos el contador de programa a la etiqueta
                                 self.simulacion.contador_de_programa = self.instr.inmediato
                                 # Ponemos el resto de instrucciones del segmentacion a Instruccion_vacias
+                                print("-------BURBUJA DE SALTO CONDICIONAL-------")
                                 self.simulacion.segmentacion[0] = FetchStage(
                                     Instruccion_vacia(), self)
                                 self.simulacion.segmentacion[2] = ReadStage(
@@ -305,6 +308,7 @@ class ExecStage(segmentacionStage):
                                 # Colocamos el contador de programa a la etiqueta
                                 self.simulacion.contador_de_programa = self.instr.inmediato
                                 # Ponemos el resto de instrucciones del segmentacion a Instruccion_vacias
+                                print("-------BURBUJA DE SALTO CONDICIONAL-------")
                                 self.simulacion.segmentacion[0] = FetchStage(
                                     Instruccion_vacia(), self)
                                 self.simulacion.segmentacion[2] = ReadStage(
@@ -316,6 +320,7 @@ class ExecStage(segmentacionStage):
                                 # Colocamos el contador de programa a la etiqueta
                                 self.simulacion.contador_de_programa = self.instr.inmediato
                                 # Ponemos el resto de instrucciones del segmentacion a Instruccion_vacias
+                                print("-------BURBUJA DE SALTO CONDICIONAL-------")
                                 self.simulacion.segmentacion[0] = FetchStage(
                                     Instruccion_vacia(), self)
                                 self.simulacion.segmentacion[2] = ReadStage(
@@ -327,6 +332,7 @@ class ExecStage(segmentacionStage):
                                 # Colocamos el contador de programa a la etiqueta
                                 self.simulacion.contador_de_programa = self.instr.inmediato
                                 # Ponemos el resto de instrucciones del segmentacion a Instruccion_vacias
+                                print("-------BURBUJA DE SALTO CONDICIONAL-------")
                                 self.simulacion.segmentacion[0] = FetchStage(
                                     Instruccion_vacia(), self)
                                 self.simulacion.segmentacion[2] = ReadStage(
