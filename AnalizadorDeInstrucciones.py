@@ -5,7 +5,7 @@ import re
 class AnalizadorDeInstrucciones():
     def __init__(self):
         self.setTipoInstruccion = {
-            'r': ['add', 'sub', 'and', 'or', 'nor', 'slt'],
+            'r': ['add', 'sub', 'and', 'or', 'nor', 'slt','mul'],
             'i': ['addi', 'subi', 'ori',  'beq', 'bne', 'lw', 'sw', 'li'],
             'j': ['j']
         }
@@ -55,8 +55,7 @@ class AnalizadorDeInstrucciones():
                 return self.instruccion_I(s)
             elif op in self.setTipoInstruccion['j']:
                 return self.instruccion_J(s)
-
-            if s.__len__ == 1:
+            if len(s)== 1:
                 return self.instruccion_Etiqueta(s)
 
     def instruccion_R(self, linea):
